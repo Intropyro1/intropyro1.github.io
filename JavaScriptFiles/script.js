@@ -60,7 +60,7 @@ function presentChoices() {
         let usersAttention = prompt("type.. artistChoice(#,#) with your choices now")
 }
 
-const artistChoice = (artistFirstChoosen,artistSecondChoosen) => {
+function artistChoice (artistFirstChoosen,artistSecondChoosen){
 
     var artist1stSelection = artistFirstChoosen;
     var artist2ndSelection = artistSecondChoosen;
@@ -153,7 +153,14 @@ const artistChoice = (artistFirstChoosen,artistSecondChoosen) => {
                     }
 }
              
+function combinationOfLyrics(evaluationArray,secondEvaluationArray){
+        var newBars = readRaps(evaluationArray);
+        var secondBars = readRaps(secondEvaluationArray);
+
+        const combinedVerses = newBars.concat(secondBars);
         
+        return combinedVerses.toString();
+}
 
 
 
