@@ -10,15 +10,14 @@ let lilYatchyLines = "int nobody flexin like me aint no nigga flexin like me 18 
 
 
 function splitTheseArrays (arraysToBeSplit) {
-        var arraysHaveBeenSplit = arraysToBeSplit.split(" ");
-            
+        var arraysHaveBeenSplit = arraysToBeSplit.split(" ");            
             return arraysHaveBeenSplit;
 }
 
 function readRaps(evaluationArray) {
     var messageBank = [];
     var displayedWord = new Set();
-    while(messageBank.length < 15){
+    while(messageBank.length < 20){
     //obtain random index
     let randomIndex = Math.floor(Math.random() * evaluationArray.length);
     //Get the current index and provide it to the first word which would be displayed at this index
@@ -164,4 +163,4 @@ function combinationOfLyrics(evaluationArray,secondEvaluationArray){
 
 
 
-console.log()
+console.log(combinationOfLyrics(readRaps(splitTheseArrays(drakeLines)), readRaps(splitTheseArrays(kendrickLines))))
