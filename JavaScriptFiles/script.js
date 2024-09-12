@@ -58,56 +58,55 @@ function presentChoices() {
         console.log("type.. artistChoice(#,#) with your choices now");
         let usersAttention = prompt("type.. artistChoice(#,#) with your choices now")
 }
+//the artistChoice function can be replaced via using the event listener to provide the names of the artists choosen,
+//the script can be used independently via the js file so i will make a copy of another function that can just be used by the HTML
+function artistChoice (firstChoices){
 
-function artistChoice (artistFirstChoosen,artistSecondChoosen){
-
-    var artist1stSelection = artistFirstChoosen;
-    var artist2ndSelection = artistSecondChoosen;
+    //var artist1stSelection = artistFirstChoosen;
+   // var artist2ndSelection = artistSecondChoosen;
 
             //going to consoladate the rest of the indexes to one, i was trying to see if i can refactor this into a while loop since it is multiple words and with each index so rather than just calling the string container multiple times, i  want to call it over the length of the array and work with it that way but currently i cant set the return value to the single array; i should be able to not pop/ as that will remove it rather i want to push it to a new array container so i think that is push the new indexes into an array container and work with it that was as the return variable, so i will be trying that, will push the value at the new index into a new array
-    const choiceToBeMade = (artist1stSelection,artist2ndSelection) => {                        
-                    let firstChoices = artist1stSelection;
-                    let secondChoices = artist2ndSelection;
                         switch (firstChoices) {
-                            case 1:
-                                readRaps(drakeRaps)
+                            case 'Drake':
                                 console.log(`You have Selected Drake ${firstChoices}.`);
+                                readRaps(drakeRaps)
                                 break;
-                            case 2:
-                                readRaps(wayneRaps)
+                            case 'Wayne':
                                 console.log(`You have Selected Wayne ${firstChoices}.`);
+                                readRaps(wayneRaps)
                                 break;
-                            case 3:
-                                readRaps(rihannaRaps)
+                            case 'Rihanna':
                                 console.log(`You have Selected Rihana ${firstChoices}.`);
+                                readRaps(rihannaRaps)
                                 break;
-                            case 4:
-                                readRaps(cardBRaps)
+                            case 'Cardi B':
                                 console.log(`You have Selected Cardi B ${firstChoices}.`);
+                                readRaps(cardBRaps)
                                 break;
-                            case 5:
-                                readRaps(megTheeRaps)
+                            case 'Megan':
                                 console.log(`You have Selected MegTheeStallon ${firstChoices}.`);
+                                readRaps(megTheeRaps)
                                 break;
-                            case 6:
-                                readRaps(twoPac)
+                            case '2 Pac':
                                 console.log(`You have Selected 2 PAC ${firstChoices}.`);
+                                readRaps(twoPac)
                                 break;
-                            case 7:
+                            case 'Lil Yachty':
+                                console.log(`You have Selected Lil Yachty ${firstChoices}.`); 
                                 readRaps(yachtyRaps)
-                                console.log(`You have Selected Lil Yachty ${firstChoices}.`);
                                 break;
-                            case 8:
-                                readRaps(kendrickLamarRaps)
+                            case 'Kendrick':
                                 console.log(`You have Selected Kendrick Lamar ${firstChoices}.`);
+                                readRaps(kendrickLamarRaps)
                                 break;
-                            case 9:
-                                readRaps(aIraps)
+                            case 'Alan':
                                 console.log(`You have Selected Alan ${firstChoices}.`);
+                                readRaps(aIraps)
                                 break;
                             default:
                                 break;
                             }
+                            /*
                         switch (secondChoices) {
                             case 1:
                                 readRaps(drakeRaps)
@@ -148,9 +147,10 @@ function artistChoice (artistFirstChoosen,artistSecondChoosen){
                             default:
                                 break;
                         }
+                                */
                     
                     }
-}
+
              
 function combinationOfLyrics(evaluationArray,secondEvaluationArray){
         var newBars = readRaps(evaluationArray);
@@ -161,6 +161,12 @@ function combinationOfLyrics(evaluationArray,secondEvaluationArray){
         return combinedVerses.join(' ');
 }
 
+document.getElementById('artistForm').addEventListener('submit', function(event){
+    event.preventDefault();
+    var artistName = document.getElementById('artistname').nodeValue;
+    artistChoice(artistName)
+
+})
 
 
-console.log(combinationOfLyrics(readRaps(splitTheseArrays(drakeLines)), readRaps(splitTheseArrays(kendrickLines))))
+//console.log(combinationOfLyrics(readRaps(splitTheseArrays(drakeLines)), readRaps(splitTheseArrays(kendrickLines))))
