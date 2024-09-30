@@ -65,7 +65,7 @@ function artistChoice (firstChoices){
     //var artist1stSelection = artistFirstChoosen;
    // var artist2ndSelection = artistSecondChoosen;
 
-            //going to consoladate the rest of the indexes to one, i was trying to see if i can refactor this into a while loop since it is multiple words and with each index so rather than just calling the string container multiple times, i  want to call it over the length of the array and work with it that way but currently i cant set the return value to the single array; i should be able to not pop/ as that will remove it rather i want to push it to a new array container so i think that is push the new indexes into an array container and work with it that was as the return variable, so i will be trying that, will push the value at the new index into a new array
+//going to consoladate the rest of the indexes to one, i was trying to see if i can refactor this into a while loop since it is multiple words and with each index so rather than just calling the string container multiple times, i  want to call it over the length of the array and work with it that way but currently i cant set the return value to the single array; i should be able to not pop/ as that will remove it rather i want to push it to a new array container so i think that is push the new indexes into an array container and work with it that was as the return variable, so i will be trying that, will push the value at the new index into a new array
                         switch (firstChoices) {
                             case 'Drake':
                                 console.log(`You have Selected Drake ${firstChoices}.`);
