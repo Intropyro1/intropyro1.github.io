@@ -160,12 +160,28 @@ function combinationOfLyrics(evaluationArray,secondEvaluationArray){
    //Replacing the toString with a join array method instead as it works better for the use of the lyrics      
         return combinedVerses.join(' ');
 }
+//Modifing the event listener
 
-document.getElementById('artistForm').addEventListener('submit', function(event){
+/*document.getElementById('artistForm').addEventListener('submit', function(event){
     event.preventDefault();
     var artistName = document.getElementById('artistname').nodeValue;
     artistChoice(artistName)
 
+})*/
+document.addEventListener('DOMContentLoaded', () =>{
+    const form = document.getElementById('artistForm');
+    const form2 = document.getElementById('secondArtistForm');
+    
+    form.addEventListener('submit', function(event) {
+        event.preventDefault();
+        const artistName = document.getElementById('artist-name').nodeValue;
+        alert('You chose: ' + artistName);
+    })
+    form2.addEventListener('submit', function(event){
+        event.preventDefault();
+        const secondArtistName = document.getElementById('second-artist-name').nodeValue;
+        alert('You chose: ' + secondArtistName);
+    })
 })
 
 
