@@ -14,6 +14,18 @@ function splitTheseArrays (arraysToBeSplit) {
             return arraysHaveBeenSplit;
 }
 
+const artistMap = {
+    "Drake": readRaps(drakeLines),
+    "Lil Wayne": wayneLines,
+    "Rihana": rihannaLines,
+    "Cardi B": cardiBLines,
+    "Megan": meganTheeLines,
+    "2 Pac": twoPacLins,
+    "Kendrick": kendrickLines,
+    "Alan": aILines,
+    "Lil Yatchy": lilYatchyLines
+}
+
 function readRaps(evaluationArray) {
     var messageBank = [];
     var displayedWord = new Set();
@@ -152,13 +164,21 @@ function artistChoice (firstChoices){
                     }
 
              
-function combinationOfLyrics(evaluationArray,secondEvaluationArray){
-        var newBars = readRaps(evaluationArray);
-        var secondBars = readRaps(secondEvaluationArray);
+function combinationOfLyrics(firstArtistName,secondArtistName){
+        /*var newBars = readRaps(evaluationArray);
+        var secondBars = readRaps(secondEvaluationArray);*/
+        const firstArtistKey = artistMap[firstArtistName];
+        const secondArtistKey = artistMap[secondArtistName];
 
-        const combinedVerses = newBars.concat(secondBars);
+        if(!firstArtistKey || !secondArtistKey){
+            alert("One or both artist names are not recognized.")
+            return;
+        }
+
+
+        const combinedVerses = firstArtistKey.concat(secondArtistKey).join(' ');
    //Replacing the toString with a join array method instead as it works better for the use of the lyrics      
-        return combinedVerses.join(' ');
+        return combinedVerses;
 }
 //Modifing the event listener
 
@@ -171,17 +191,29 @@ function combinationOfLyrics(evaluationArray,secondEvaluationArray){
 document.addEventListener('DOMContentLoaded', () =>{
     const form = document.getElementById('artistForm');
     const form2 = document.getElementById('secondArtistForm');
+    let firstArtistName = '';
+    let secondArtistName = '';
     
     form.addEventListener('submit', function(event) {
         event.preventDefault();
-        const artistName = document.getElementById('artist-name').nodeValue;
+        firstArtistName = document.getElementById('artist-name').nodeValue;
         alert('You chose: ' + artistName);
-    })
+    });
     form2.addEventListener('submit', function(event){
         event.preventDefault();
-        const secondArtistName = document.getElementById('second-artist-name').nodeValue;
+        secondArtistName = document.getElementById('second-artist-name').nodeValue;
         alert('You chose: ' + secondArtistName);
-    })
+    });
+
+    document.getElementById('generateButton'.addEventListener('click', () => {
+        if(firstArtistName && secondArtistName) {
+            combinationOfLyrics(firstArtistName, secondArtistName);
+        } else {
+            alert('Please choose both artists first.');
+        }
+    }))
+
+
 })
 
 

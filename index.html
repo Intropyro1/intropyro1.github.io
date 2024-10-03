@@ -1,8 +1,17 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" http-equiv="cache-control" >
     <title>Opening Intro Page</title>
+    <configuration>
+      <system.webServer>
+         <httpProtocol>
+             <customHeaders>
+                 <add name="X-Content-Type-Options" value="nosniff" />
+             </customHeaders>
+         </httpProtocol>
+     </system.webServer>
+ </configuration>
   </head>
 
   <header>
@@ -19,27 +28,25 @@
   
 <body> 
    <div> 
-    <img src="https://content.codecademy.com/articles/github-pages-via-web-app/happy-ice-cream.gif" alt ="this should be an image"/>
+    <img src="https://content.codecademy.com/articles/github-pages-via-web-app/happy-ice-cream.gif" alt ="this should be an image" />
     <p>Hope this peeks your interests</p>
   </div>
   <br /> 
 
 <div>
-  <form id="artistForm" action="" method="get" class="input-of-artist">
-    <label for="First-Artist">
+  <form id="artistForm" >
+    <label for="first-Artist">
       Choose your First Artist:
-      <input type="text" name="artist-name" />
+      <input type="text" id="first-Artist" name="artist-name" />
     </label>
-    <button type="submit">submit</button>
   </form>
 </div>  
 <div>
-    <form id="secondArtistForm" action="" method="get" class="input-of-artist"> 
-      <label for="Second-Artist">
+    <form id="secondArtistForm"> 
+      <label for="second-Artist">
         Choose your Second Artist:
-      <input type="text" name="second-artist-name" />
+      <input type="text" id="second-Artist" name="second-artist-name" />
       </label>
-      <button type="submit">submit</button>
     </form>   
 </div>    
 <div class="submission-of-choice">
@@ -47,13 +54,13 @@
 </div>
 <br />
 <div>
-  <button onclick="combinationOfLyrics()" type="button"> To Generate </button>
+  <button id="generateButton" type="button"> To Generate </button>
 </div>
 
 <div>
   <script
   async
-  src="intropyro1.github.io/index.html"
+  src=intropyro1.github.io/JavaScriptFiles/script.js
   >
  
 
